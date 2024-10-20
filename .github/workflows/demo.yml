@@ -1,5 +1,8 @@
 name: 🍏first pipeline 
 run-name: first pipeline
+env:
+   name : edwin 
+   password: p1234
 
 on:
   push:
@@ -26,8 +29,13 @@ jobs:
     - name: 🍏path base script
       run: |
          script\script.ps1 
+    - name: env 
+      run: |
+       Write-Host "my name is: ${{env.name}}" 
+        Write-host "${{env.password}}"
   test:
-    runs-on: ubuntu-latest
+    needs: build
+    runs-on: windows-latest
     steps:
       - name: test powershell
         run: |
