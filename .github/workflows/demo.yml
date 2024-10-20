@@ -1,4 +1,4 @@
-name: first pipeline 
+name: 🍏first pipeline 
 run-name: first pipeline
 
 on:
@@ -15,13 +15,13 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: checkout step
+    - name: 🍏checkout step
       uses: actions/checkout@v4
-    - name: inline script
+    - name: 🍏inline script
       run: |
         write-host "i love jesus"
         write-host " I must have a job"
-    - name: path base script
+    - name: 🍏path base script
       run: |
          script\script.ps1 
               
