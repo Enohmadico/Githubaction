@@ -24,7 +24,16 @@ jobs:
     - name: 🍏path base script
       run: |
          script\script.ps1 
-              
+  test:
+    runs-on: unbuntu-latest
+    steps:
+      - name: test powershell
+        run: |
+         Write-Host "testing"   
+        
+
+
+    
     
 
     
