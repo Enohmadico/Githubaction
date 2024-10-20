@@ -1,7 +1,9 @@
 name: List of GitHub Environment Variables
 
 on: 
-  workflow_dispatch
+  push:
+    branches:
+        -test 
 
 jobs:
   ubuntu-env-variables:
