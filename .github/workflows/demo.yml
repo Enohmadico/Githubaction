@@ -1,0 +1,23 @@
+name: first-pipeline 
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: inline script
+      run: |
+        write-host "i love jesus"
+        write-host " I must have a job"
+    
+
+    
