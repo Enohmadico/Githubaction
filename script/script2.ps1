@@ -7,3 +7,6 @@ if ((git config --global user.email) -eq "edwinenoh1996@gmail.com") {
 } else {
     Write-Host "Email not found or is different."
 }
+ 
+
+$content = Get-Content -Path $Github_env
