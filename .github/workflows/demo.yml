@@ -25,7 +25,7 @@ jobs:
       run: |
          script\script.ps1 
   test:
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: test powershell
         run: |
