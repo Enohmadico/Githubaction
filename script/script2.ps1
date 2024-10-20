@@ -1,1 +1,1 @@
-echo "man"
+Write-Host "man"
