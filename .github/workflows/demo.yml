@@ -21,6 +21,7 @@ jobs:
       run: |
         write-host "i love jesus"
         write-host " I must have a job"
+        echo "Jesus"
     - name: 🍏path base script
       run: |
          script\script.ps1 
