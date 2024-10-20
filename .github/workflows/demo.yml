@@ -1,4 +1,5 @@
-name: first-pipeline 
+name: first pipeline 
+run-name: first pipeline
 
 on:
   push:
