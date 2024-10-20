@@ -19,6 +19,10 @@ jobs:
       run: |
         write-host "i love jesus"
         write-host " I must have a job"
+    - name: path base script
+      run: |
+         script\script.ps1 
+              
     
 
     
