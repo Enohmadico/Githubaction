@@ -1,4 +1,4 @@
-name: List of GitHub Environment Variables
+name: github enviroment variable
 
 on: 
   push:
