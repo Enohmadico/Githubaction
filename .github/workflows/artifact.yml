@@ -15,8 +15,9 @@ jobs:
     steps:
       - name: Create a local file
         run: |
-          Write-Host "Hi, I am storing this data in this file so that I can use this in the subsequent jobs within this workflow's run."
-          Write-Host "I will upload this file to GitHub storage and download it when needed in this workflow run." > artifact.txt
+          $content="Hi, I am storing this data in this file"
+          set-content -path ./artifact.txt $content
+      - run: get-content $content 
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
