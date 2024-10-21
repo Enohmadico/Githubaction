@@ -11,5 +11,5 @@ jobs:
     steps:
       - name: print secret from environment 
         run: |
-          write-host "STAGE_SECRETS:${{ secrets.STAGE_SECRET }}"
+          write-host "STAGE_SECRETS:${{ secrets.STAGE_SECRETS }}"
     
