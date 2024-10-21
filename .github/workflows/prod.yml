@@ -1,9 +1,8 @@
-name: deployment
+name: Github Environment
 on:
   push:
     branches:
       - test
-        
 jobs:
   deployment:
     runs-on: windows-latest
@@ -12,6 +11,6 @@ jobs:
     steps:
       - name: print secret from environment 
         run: |
-          write-host "production_secret:${{ secrets.production_secret }}"
+          write-host "production_secret:${{ secrets .production_secret }}"
 
      
