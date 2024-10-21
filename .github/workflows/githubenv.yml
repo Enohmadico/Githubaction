@@ -1,0 +1,64 @@
+name: 🍏GitHub Environment Variables
+env:
+    Top: ${{secrets.TOP_SECRET_MADICO}}
+         
+
+on: 
+  push:
+    branches:
+      - "test"
+  workflow_dispatch:  
+
+jobs:
+  ubuntu-env-variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List environment variables
+        run: env 
+
+  windows-env-variables:
+    runs-on: windows-latest
+    steps:
+      - name: List environment variables
+        run: env 
+
+  macos-env-variables:
+    runs-on: macos-latest
+    steps:
+      - name: List environment variables
+        run: env 
+
+  print-default-vars:
+    runs-on: windows-latest
+    steps:
+      - name: Print default GitHub environment variables
+        run: |
+          Write-Host "GITHUB_ACTION: $env:GITHUB_ACTION"
+          Write-Host "GITHUB_ENV: $env:GITHUB_ENV"
+          Write-Host "GITHUB_JOB: $env:GITHUB_JOB"
+          Write-Host "RUNNER_NAME: $env:RUNNER_NAME"
+          Write-Host "GITHUB_JOB: $env:GITHUB_JOB"
+  deployment: 
+    runs-on: windows-latest  # Correct OS runner
+    steps:
+    - name: Print secret
+      run: |
+         Write-Host "my_top_secret: ${{secrets.TOP_SECRET_MADICO}}" 
+         write-host "number1"
+    - name: print secret 
+      env:
+        Top_secret: ${{secrets.TOP_SECRET_MADICO}}
+         
+      run: |
+         write-host "Top_secret: ${{env.Top_secret}}"
+
+    - name: new print 
+      run: |
+        write-host "secret called from form another step:${{env.Top_secret}}"
+    - name: Top variable 
+      run: |
+        write-host "${{env.top}}"
+         
+
+        
+
