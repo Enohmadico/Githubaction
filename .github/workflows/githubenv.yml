@@ -1,6 +1,6 @@
 name: 🍏GitHub Environment Variables
 env:
-        Top: ${{secrets.TOP_SECRET_MADICO}}
+    Top: ${{secrets.TOP_SECRET_MADICO}}
          
 
 on: 
