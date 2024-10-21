@@ -42,6 +42,6 @@ jobs:
       - name: github actor with context syntax
         run: |
           write-host "${{github.actor}} is the github actor 🗡️ "
-      - name: github actor with ENV
+      - name: github actor with context syntax
         run: |
-           write-host "$env.GITHUB_ACTOR is the github actor 🗡️"
+           write-host "${{github.actor}} is the github actor 🗡️ "
