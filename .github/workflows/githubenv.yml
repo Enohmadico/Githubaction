@@ -1,9 +1,9 @@
-name: github enviroment variable
+name: GitHub Environment Variables
 
 on: 
   push:
     branches:
-        -test 
+      - "test"
 
 jobs:
   ubuntu-env-variables:
