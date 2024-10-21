@@ -48,6 +48,10 @@ jobs:
          
       run: |
          write-host "Top_secret: ${{env.Top_secret}}"
+
+    - name: new print 
+      run: |
+        write-host "secret called from form another step:${{env.Top_secret}}"
          
 
         
