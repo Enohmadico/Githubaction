@@ -16,7 +16,7 @@ jobs:
       - name: Create a local file
         run: |
           $content="Hi, I am storing this data in this file"
-          set-content -path "./artifact.txt"-value $content
+          add-content -path "./artifact.txt"-value $content
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
