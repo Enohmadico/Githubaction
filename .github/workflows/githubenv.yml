@@ -24,3 +24,16 @@ jobs:
     steps:
       - name: List environment variables
         run: env 
+
+  print-default-vars:
+    runs-on: windows-latest
+    steps:
+      - name: Print default GitHub environment variables
+        run: |
+          Write-Host "GITHUB_ACTION: $env:GITHUB_ACTION"
+          Write-Host "GITHUB_ENV: $env:GITHUB_ENV"
+          Write-Host "GITHUB_JOB: $env:GITHUB_JOB"
+          Write-Host "RUNNER_NAME: $env:RUNNER_NAME"
+          Write-Host "GITHUB_JOB: $env:GITHUB_JOB"
+
+
