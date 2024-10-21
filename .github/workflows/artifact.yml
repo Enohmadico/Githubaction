@@ -22,7 +22,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: file  # Name of the artifact
-          path: ./artifact.txt  # Path to the file being uploaded
+          path: ./artifacts.txt  # Path to the file being uploaded
           retention-days: 2  # Optional: Retain the artifact for 2 days
 
   job_2:
@@ -34,7 +34,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: file  # Name of the artifact to download
-          retention-day: 2 
+          
 
       - name: Display artifact content
         run: Get-Content ./artifact.txt  # Ensure this points to the correct path
