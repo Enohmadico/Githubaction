@@ -39,6 +39,9 @@ jobs:
 
       - name: Display artifact content
         run: Get-Content ./artifact.txt  # Ensure this points to the correct path
-      - name: github actor
+      - name: github actor with context syntax
         run: |
           write-host "${{github.actor}} is the github actor 🗡️ "
+      - name: github actor with ENV
+        run: |
+           write-host "${{env.GITHUB_ACTOR}} is the github actor 🗡️ "
