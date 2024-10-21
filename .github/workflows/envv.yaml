@@ -1,4 +1,4 @@
-name: Github Environment
+name: Github
 on:
   push:
     branches:
