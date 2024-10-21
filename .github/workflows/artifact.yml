@@ -43,5 +43,7 @@ jobs:
         run: |
           write-host "${{github.actor}} is the github actor 🗡️ "
       - name: github actor with ENV
+        env:
+            ACTOR: ${{github.actor}} 
         run: |
-           write-host "${{env.GITHUB_ACTOR}} is the github actor 🗡️ "
+           write-host "${{env.ACTOR}} is the github actor 🗡️"
