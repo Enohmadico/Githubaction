@@ -7,10 +7,9 @@ jobs:
   deployment:
     runs-on: windows-latest
     environment: 
-      name: production
+      name: STAGE
     steps:
       - name: print secret from environment 
         run: |
-          write-host "production_secret:${{ secrets .production_secret }}"
+          write-host "STAGE_SECRETS:${{ secrets.STAGE_SECRET }}"
     
-     
