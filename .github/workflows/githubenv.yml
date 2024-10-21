@@ -41,7 +41,7 @@ jobs:
     - name: Print secret
       run: |
          Write-Host "my_top_secret: ${{secrets.TOP_SECRET_MADICO}}" 
+         write-host "number1"
 
         
 
-         
