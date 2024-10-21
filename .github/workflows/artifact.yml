@@ -24,7 +24,7 @@ jobs:
           name: file  # Name of the artifact
           path: ./artifacts.txt  # Path to the file being uploaded
           retention-days: 2  # Optional: Retain the artifact for 2 days
-          if-no-files-found: error 
+          if-no-files-found: ignore
 
   job_2:
     needs: job_1  # This ensures that job_1 runs before job_2
