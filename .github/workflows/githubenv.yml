@@ -35,5 +35,9 @@ jobs:
           Write-Host "GITHUB_JOB: $env:GITHUB_JOB"
           Write-Host "RUNNER_NAME: $env:RUNNER_NAME"
           Write-Host "GITHUB_JOB: $env:GITHUB_JOB"
-
-
+ deployment:
+   runs-on: windows-latest  # Correct OS runner
+   steps:
+    - name: Print secret
+      run: |
+        Write-Host "my_top_secret: ${{ secrets.TOP_SECRETS_REPO }}"  # Correct secret syntax
