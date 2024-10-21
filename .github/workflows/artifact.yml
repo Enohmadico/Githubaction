@@ -34,6 +34,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: file  # Name of the artifact to download
+          retention-day: 2 
 
       - name: Display artifact content
         run: Get-Content ./artifact.txt  # Ensure this points to the correct path
