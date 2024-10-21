@@ -42,6 +42,13 @@ jobs:
       run: |
          Write-Host "my_top_secret: ${{secrets.TOP_SECRET_MADICO}}" 
          write-host "number1"
+    - name: print secret 
+      env:
+        Top_secret: ${{secrets.TOP_SECRET_MADICO}}
+         
+      run: |
+         write-host "Top_secret: ${{env.Top_secret}}"
+         
 
         
 
