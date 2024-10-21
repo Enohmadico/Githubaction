@@ -41,4 +41,4 @@ jobs:
         run: Get-Content ./artifact.txt  # Ensure this points to the correct path
       - name: github actor
         run: |
-          write-host "${{github.actor}} "
+          write-host "${{github.actor}} is the github actor 🗡️ "
