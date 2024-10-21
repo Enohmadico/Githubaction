@@ -44,6 +44,6 @@ jobs:
           write-host "${{github.actor}} is the github actor 🗡️ "
       - name: using env to access github actor(Set GITHUB_ACTOR as an envt variable)
         env:
-          ACTOR: ${{github.actor}} 
+          GITHUB_ACTOR: ${{github.actor}} 
         run: |
-          write-host "${{env.ACTOR}}"
+          write-host "${{env.GITHUB_ACTOR}}"
