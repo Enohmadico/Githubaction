@@ -1,3 +1,4 @@
+
 name: artifact demo
 
 on:
@@ -16,7 +17,7 @@ jobs:
       - name: Create a local file
         run: |
           $content="Hi, I am storing this data in this file"
-          add-content -path "./artifact.txt"-value $content
+          Add-Content -Path "./artifact.txt" -Value $content  # Added space before -Value
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -35,12 +36,4 @@ jobs:
           name: file  # Name of the artifact to download
 
       - name: Display artifact content
-        run: Get-Content ./artifact.txt  # Display the content of the downloaded file
-
-        
-          
-
-
-     
-    
-  
+        run: Get-Content ./artifact.txt  # Ensure this points to the correct path
