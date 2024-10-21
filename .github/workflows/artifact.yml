@@ -1,0 +1,47 @@
+name: artifact demo
+
+on:
+  push:
+    branches:
+      - test  # Trigger on push to 'test' branch
+  pull_request:
+    branches:
+      - test  # Trigger on pull request to 'test' branch
+
+jobs:
+  job_1:
+    name: Upload artifacts
+    runs-on: windows-latest
+    steps:
+      - name: Create a local file
+        run: |
+          Write-Host "Hi, I am storing this data in this file so that I can use this in the subsequent jobs within this workflow's run."
+          Write-Host "I will upload this file to GitHub storage and download it when needed in this workflow run." > artifact.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: file  # Name of the artifact
+          path: ./artifact.txt  # Path to the file being uploaded
+          retention-days: 2  # Optional: Retain the artifact for 2 days
+
+  job_2:
+    needs: job_1  # This ensures that job_1 runs before job_2
+    name: Download artifacts
+    runs-on: windows-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: file  # Name of the artifact to download
+
+      - name: Display artifact content
+        run: Get-Content ./artifact.txt  # Display the content of the downloaded file
+
+        
+          
+
+
+     
+    
+  
