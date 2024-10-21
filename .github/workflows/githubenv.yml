@@ -1,4 +1,7 @@
 name: 🍏GitHub Environment Variables
+env:
+        Top: ${{secrets.TOP_SECRET_MADICO}}
+         
 
 on: 
   push:
@@ -52,6 +55,9 @@ jobs:
     - name: new print 
       run: |
         write-host "secret called from form another step:${{env.Top_secret}}"
+    - name: top variable 
+      run: |
+        write-host "${{env.top}}"
          
 
         
