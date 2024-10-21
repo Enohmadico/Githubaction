@@ -22,7 +22,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: file  # Name of the artifact
-          path: ./artifacts.txt  # Path to the file being uploaded
+          path: ./artifact.txt  # Path to the file being uploaded
           retention-days: 2  # Optional: Retain the artifact for 2 days
           if-no-files-found: ignore
 
