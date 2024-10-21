@@ -55,7 +55,7 @@ jobs:
     - name: new print 
       run: |
         write-host "secret called from form another step:${{env.Top_secret}}"
-    - name: top variable 
+    - name: Top variable 
       run: |
         write-host "${{env.top}}"
          
