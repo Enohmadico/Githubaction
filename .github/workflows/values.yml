@@ -15,10 +15,8 @@ jobs:
       # Step 1: Create a variable using $GIHUB_ENV
       - name: Create variable
         run: |
-            $output="hello"
-          
-            "foo=b"| Out-File -FilePath $env:GITHUB_OUTPUT -Append 
-            Get-Content $env.GITHUB_OUTPUT
+            $output="hello" | Out-File -FilePath $env:GITHUB_OUTPUT -Append 
+            Get-Content - filePath $env.GITHUB_OUTPUT
         shell: powershell 
 
         
