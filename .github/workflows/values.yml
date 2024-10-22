@@ -9,14 +9,14 @@ on:
 
 jobs:
   sharing_values:
-    environment: production 
+  #  environment: production 
     runs-on: windows-latest 
     steps:
       # Step 1: Create a variable using $GIHUB_ENV
       - name: Create variable
         run: |
            $output="hello"
-           "My_variable= $output" | out-file -filepath $Env:GITHUB_ENV -Append
+            $output | out-file -filepath $Env:GITHUB_ENV -Append
             write-host "${{env.GITHUB_ENV}}"
         
      
