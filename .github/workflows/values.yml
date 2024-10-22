@@ -6,18 +6,23 @@ on:
       - test
   workflow_dispatch:
 
-
 jobs:
   sharing_values:
-  #  environment: production 
     runs-on: windows-latest 
     steps:
-      # Step 1: Create a variable using $GIHUB_ENV
+      # Step 1: Create a variable using $GITHUB_ENV
       - name: Create variable
+        shell: pwsh
         run: |
-            $output="hello" | Out-File -FilePath $env:GITHUB_OUTPUT -Append 
-            Get-Content - filePath $env.GITHUB_OUTPUT
-        shell: powershell 
+            $output = "hello"
+            # Set the environment variable
+            "MY_OUTPUT=$output" | Out-File -FilePath $env:GITHUB_ENV -Append
+
+      # Step 2: Use the environment variable in the next step
+      - name: Use the variable
+        run: |
+            Write-Host "The message is: $Env:MY_OUTPUT"
+
 
         
      
