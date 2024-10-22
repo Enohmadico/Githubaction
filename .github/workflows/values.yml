@@ -18,8 +18,11 @@ jobs:
         run: |
           $outputValue = "hello world"
           Write-Host "::set-output name=my_output::$outputValue"
-        shell: pwsh
+      - name: set the value using ent variable
+        run: | 
+           $name="the job will show up soon"
 
+        
       # Step 2: Use the variable defined in the previous step
       - name: Use the variable
         run: Write-Host "The message is ${{ steps.step1.outputs.my_output }}"
@@ -30,3 +33,7 @@ jobs:
     steps:
      - name: command 
        run: write-host"edwin" 
+     - name: display the github actor 
+       run : write-host"${{ github.actor }}"
+     - run : write-host "$GITHUB_ENV"
+
