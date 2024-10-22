@@ -16,11 +16,11 @@ jobs:
       - name: Create variable
         run: |
             $output="hello"
-            echo "$output" | Out-File -FilePath $Env:GITHUB_ENV -Append
+            write-host "$output" | Out-File -FilePath $env:GITHUB_ENV -Append
             Get-Content $Env:GITHUB_ENV
             $output="king"
-            Add-Content -Path $Env:GITHUB_ENV -Value $output
-            Write-Host "new: $output"
+            Add-Content -Path $env:GITHUB_ENV -Value $output
+            Write-Host "new: $env.GITHUB_ENV"
 
         
      
