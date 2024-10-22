@@ -20,7 +20,7 @@ jobs:
           Write-Host "::set-output name=my_output::$outputValue"
       - name: set the value using ent variable
         run: | 
-           $name="the job will show up soon"
+           write-host "my_variable=helloo world" >> $GITHUB_ENV
 
         
       # Step 2: Use the variable defined in the previous step
@@ -28,12 +28,15 @@ jobs:
         run: Write-Host "The message is ${{ steps.step1.outputs.my_output }}"
         
   testing:
-    environment: stage
+    
     runs-on: windows-latest 
     steps:
      - name: command 
-       run: write-host "edwin" 
+       run:  write-host "edwin" 
      - name: display the github actor 
        run : write-host"${{ github.actor }}"
-     - run : write-host "$GITHUB_ENV"
+     - name: use variable from another step 
+       run: |
+          write-host" The message is : $my_variable"
+     
 
