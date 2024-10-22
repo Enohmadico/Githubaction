@@ -6,8 +6,10 @@ on:
       - test
   workflow_dispatch:
 
+
 jobs:
   sharing_values:
+    environment: production 
     runs-on: windows-latest 
     steps:
       # Step 1: Create a variable and set an output
@@ -22,3 +24,9 @@ jobs:
       - name: Use the variable
         run: Write-Host "The message is ${{ steps.step1.outputs.my_output }}"
         
+  testing:
+    environment: stage
+    runs-on: windows-latest 
+    steps:
+     - name: command 
+       run: write-host"edwin 
