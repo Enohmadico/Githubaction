@@ -17,7 +17,7 @@ jobs:
         run: |
           $myVariable = "Hello, GitHub Actions!"
           echo "MY_VARIABLE=$myVariable" >> $GITHUB_ENV
-          Write-Host "the value of MY_VARIABLE IS : ${{env.MY_VARIABLE}}"
+          Write-Host "the value of MY_VARIABLE IS : $env.MY_VARIABLE"
 
         
      
