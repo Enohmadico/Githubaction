@@ -17,7 +17,7 @@ jobs:
         run: |
             $output="hello"
           
-            "foo=bar"| Out-File -FilePath $env:GITHUB_OUTPUT -Append 
+            "foo=b"| Out-File -FilePath $env:GITHUB_OUTPUT -Append 
             Get-Content $env.GITHUB_OUTPUT
         shell: powershell 
 
