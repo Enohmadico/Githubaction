@@ -23,6 +23,9 @@ jobs:
       - name: Use the variable
         run: |
             Write-Host "The message is: ${{ steps.create_var.outputs.my_output }}"
+      - run: |
+            Write-Host "Reading GITHUB_OUTPUT file content:"
+            Get-Content -Path $env:GITHUB_OUTPUT
 
 
         
