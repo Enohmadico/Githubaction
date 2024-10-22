@@ -12,31 +12,25 @@ jobs:
     environment: production 
     runs-on: windows-latest 
     steps:
-      # Step 1: Create a variable and set an output
+      # Step 1: Create a variable using $GIHUB_ENV
       - name: Create variable
-        id: step1 
         run: |
-          $outputValue = "hello world"
-          Write-Host "::set-output name=my_output::$outputValue"
-      - name: set the value using ent variable
-        run: | 
-           write-host "my_variable=helloo world" >> $GITHUB_ENV
+           $output=hello
+           "My_variable= $output" | out-file -filepath $Env:GITHUB_ENV -Append
 
         
-      # Step 2: Use the variable defined in the previous step
-      - name: Use the variable
-        run: Write-Host "The message is ${{ steps.step1.outputs.my_output }}"
-        
-  testing:
+     
+#   testing:   
     
-    runs-on: windows-latest 
-    steps:
-     - name: command 
-       run:  write-host "edwin" 
-     - name: display the github actor 
-       run : write-host"${{ github.actor }}"
-     - name: use variable from another step 
-       run: |
-          write-host" The message is : $my_variable"
+#     runs-on: windows-latest 
+#     steps:
+#      - name: command 
+#        run:  write-host "edwin" 
+#      - name: display the github actor 
+#        run : write-host"${{ github.actor }}"
+#      - name: use variable from another step 
+#        run: |
+#           write-host "${{env.My_variable}}"
+          
      
 
