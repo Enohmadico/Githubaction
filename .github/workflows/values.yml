@@ -10,18 +10,19 @@ jobs:
   sharing_values:
     runs-on: windows-latest 
     steps:
-      # Step 1: Create a variable using $GITHUB_ENV
+      # Step 1: Create a variable using $GITHUB_OUTPUT
       - name: Create variable
+        id: create_var
         shell: pwsh
         run: |
             $output = "hello"
-            # Set the environment variable
-            "MY_OUTPUT=$output" | Out-File -FilePath $env:GITHUB_ENV -Append
+            # Set the output variable
+            "my_output=$output" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 
-      # Step 2: Use the environment variable in the next step
+      # Step 2: Use the output variable in the next step
       - name: Use the variable
         run: |
-            Write-Host "The message is: $Env:MY_OUTPUT"
+            Write-Host "The message is: ${{ steps.create_var.outputs.my_output }}"
 
 
         
@@ -40,3 +41,15 @@ jobs:
           
      
 
+# -  name: Let us do a new thing 
+# id: revision
+# run: |
+#      $output= "id_1=19"
+#      Add-Content -Path $env:GITHUB_OUTPUT -Value $output
+            
+# - name: Get new id_i
+#   run: |
+#     Write-Host "Find out if it worked"
+#     $I="${{steps.newTest.outputs.id_1}}"
+#      Write-Host " this is the value of I: $I"
+#     Write-Host "Did it work?"
