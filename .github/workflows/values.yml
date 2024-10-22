@@ -15,7 +15,7 @@ jobs:
       # Step 1: Create a variable using $GIHUB_ENV
       - name: Create variable
         run: |
-           $output=hello
+           $output="hello"
            "My_variable= $output" | out-file -filepath $Env:GITHUB_ENV -Append
 
         
