@@ -32,7 +32,7 @@ jobs:
     runs-on: windows-latest 
     steps:
      - name: command 
-       run: write-host"edwin" 
+       run: write-host "edwin" 
      - name: display the github actor 
        run : write-host"${{ github.actor }}"
      - run : write-host "$GITHUB_ENV"
