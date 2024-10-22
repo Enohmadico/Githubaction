@@ -15,9 +15,11 @@ jobs:
       # Step 1: Create a variable using $GIHUB_ENV
       - name: Create variable
         run: |
-          $myVariable = "Hello, GitHub Actions!"
-          echo "MY_VARIABLE=$myVariable" >> $GITHUB_ENV
-          Write-Host "the value of MY_VARIABLE IS : $env.MY_VARIABLE"
+            $output="hello"
+          
+            $output | Out-File -FilePath $env.GITHUB_OUTPUT -Append 
+            Write-Host "new: $env.GITHUB_OUTPUT"
+        shell: powershell 
 
         
      
