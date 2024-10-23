@@ -1,4 +1,4 @@
-name: passing values to next steps
+name: passing values between jobs
 
 on:
   push:
@@ -19,19 +19,19 @@ jobs:
             # Set the output variable
             "my_output=$output" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 
-        # Step 2: Use the output variable in the next step
-      - name: Use the variable
+      # Step 2: Use the output variable in the same job (optional)
+      - name: Use the variable in the same job
         run: |
           Write-Host "The message is: ${{ steps.create_var.outputs.my_output }}"
-job2:
-  try again:
+
+  job2:
     runs-on: windows-latest
-    needs: job1  # Ensure job2 waits for job1 to finish
+    needs: sharing_values  # Ensure job2 waits for sharing_values to finish
     steps:
-      - name: Use the variable from job1
-        run: |
-          Write-Host "The message is: $env:MY_OUTPUT"
+      - name: Use the variable from sharing_values job
         shell: pwsh
+        run: |
+          Write-Host "The message is: ${{ steps.create_var.outputs.my_output }}"
 
 
         
