@@ -3,14 +3,14 @@ name: .NET CI
 on:
   push:
     branches:
-      - test
+      - Dev
   pull_request:
     branches:
-      - test
+      - Dev
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     strategy:
       matrix:
         dotnet-version: [ '3.1.x', '6.0.x' ]
