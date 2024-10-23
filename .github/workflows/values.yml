@@ -19,40 +19,20 @@ jobs:
             # Set the output variable
             "my_output=$output" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
 
-      # Step 2: Use the output variable in the next step
+        # Step 2: Use the output variable in the next step
       - name: Use the variable
         run: |
-            Write-Host "The message is: ${{ steps.create_var.outputs.my_output }}"
-      - run: |
-            Write-Host "Reading GITHUB_OUTPUT file content:"
-            Get-Content -Path env.my_output 
+          Write-Host "The message is: ${{ steps.create_var.outputs.my_output }}"
+job2:
+  try again:
+    runs-on: windows-latest
+    needs: job1  # Ensure job2 waits for job1 to finish
+    steps:
+      - name: Use the variable from job1
+        run: |
+          Write-Host "The message is: $env:MY_OUTPUT"
+        shell: pwsh
 
 
         
      
-#   testing:   
-    
-#     runs-on: windows-latest 
-#     steps:
-#      - name: command 
-#        run:  write-host "edwin" 
-#      - name: display the github actor 
-#        run : write-host"${{ github.actor }}"
-#      - name: use variable from another step 
-#        run: |
-#           write-host "${{env.My_variable}}"
-          
-     
-
-# -  name: Let us do a new thing 
-# id: revision
-# run: |
-#      $output= "id_1=19"
-#      Add-Content -Path $env:GITHUB_OUTPUT -Value $output
-            
-# - name: Get new id_i
-#   run: |
-#     Write-Host "Find out if it worked"
-#     $I="${{steps.newTest.outputs.id_1}}"
-#      Write-Host " this is the value of I: $I"
-#     Write-Host "Did it work?"
