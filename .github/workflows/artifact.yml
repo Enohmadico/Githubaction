@@ -1,0 +1,49 @@
+
+name: artifact demo
+
+on:
+  push:
+    branches:
+      - test  # Trigger on push to 'test' branch
+  pull_request:
+    branches:
+      - test  # Trigger on pull request to 'test' branch
+
+jobs:
+  job_1:
+    name: Upload artifacts
+    runs-on: windows-latest
+    steps:
+      - name: Create a local file
+        run: |
+          $content="Hi, I am storing this data in this file"
+          Add-Content -Path "./artifact.txt" -Value $content  # Added space before -Value
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: file  # Name of the artifact
+          path: ./artifact.txt  # Path to the file being uploaded
+          retention-days: 2  # Optional: Retain the artifact for 2 days
+          if-no-files-found: ignore
+
+  job_2:
+    needs: job_1  # This ensures that job_1 runs before job_2
+    name: Download artifacts
+    runs-on: windows-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: file  # Name of the artifact to download
+          
+
+      - name: Display artifact content
+        run: Get-Content ./artifact.txt  # Ensure this points to the correct path
+      - name: github actor with context 
+        run: |
+          write-host "${{github.actor}} is the github actor 🗡️ "
+      - name: using env to access github actor(Set GITHUB_ACTOR as an envt variable)
+        env:
+          GITHUB_ACTOR: ${{github.actor}} 
+        run: |
+          write-host "${{env.GITHUB_ACTOR}}"

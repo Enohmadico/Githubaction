@@ -1,0 +1,15 @@
+name: Github Environment
+on:
+  push:
+    branches:
+      - test
+jobs:
+  deployment:
+    runs-on: windows-latest
+    environment: 
+      name: STAGE
+    steps:
+      - name: print secret from environment 
+        run: |
+          write-host "STAGE_SECRETS:${{ secrets.STAGE_SECRETS }}"
+    

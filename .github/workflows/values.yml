@@ -1,0 +1,38 @@
+name: passing values between jobs
+
+on:
+  push:
+    branches:
+      - test
+  workflow_dispatch:
+
+jobs:
+  sharing_values:
+    runs-on: windows-latest 
+    steps:
+      # Step 1: Create a variable using $GITHUB_OUTPUT
+      - name: Create variable
+        id: create_var
+        shell: pwsh
+        run: |
+            $output = "hello"
+            # Set the output variable
+            "my_output=$output" | Out-File -FilePath $env:GITHUB_OUTPUT -Append
+
+      # Step 2: Use the output variable in the same job (optional)
+      - name: Use the variable in the same job
+        run: |
+          Write-Host "The message is: ${{ steps.create_var.outputs.my_output }}"
+
+  job2:
+    runs-on: windows-latest
+    needs: sharing_values  # Ensure job2 waits for sharing_values to finish
+    steps:
+      - name: Use the variable from sharing_values job
+        shell: pwsh
+        run: |
+          Write-Host "The message is: ${{ steps.create_var.outputs.my_output }}"
+
+
+        
+     
